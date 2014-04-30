@@ -26,7 +26,7 @@ git push heroku
 * `AWS_SECRET_ACCESS_KEY` (Required)
 * `PASSWORD` (Optional)
 
-*Tip: `heroku config:set --app my-app-name MY_VAR=my-value`
+*Tip: `heroku config:set --app your-app-name PASSWORD=sup3rt0ps3cr3t`
 
 ## REST API
 
