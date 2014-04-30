@@ -25,10 +25,11 @@ git push heroku
 * `AWS_ACCESS_KEY_ID` (Required)
 * `AWS_SECRET_ACCESS_KEY` (Required)
 * `PASSWORD` (Optional)
+* `PORT` (Optional *defaults to `3000`*)
 
-*Tip: `heroku config:set --app your-app-name PASSWORD=sup3rt0ps3cr3t`
+*Tip: `heroku config:set --app your-app-name PASSWORD=sup3rt0ps3cr3t`*
 
-## REST API
+## API
 
 If `PASSWORD` is defined, it must be included in the URL
 
@@ -39,7 +40,7 @@ If `PASSWORD` is defined, it must be included in the URL
 
 ### Notes
 
-* AWS Route53 Zones are $0.50/m each and domains are about $3.00/yr
+* Domains are about $3.00/yr and then managing these on AWS Route53 is about $0.50each/mth
 * On free heroku, apps can be brought down due to innactivity, to keep them up - use [UptimeRobot](https://uptimerobot.com/)
 * On free heroku, a `ddns-daemon` server would not be secured, so requests would be vuln to a MitM
 * Logs get wiped on app restart
