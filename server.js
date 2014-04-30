@@ -95,17 +95,15 @@ function showLogs(callback) {
 
 http.createServer(function setRecord(req, res) {
 
-  var ip = req.connection.remoteAddress;
+  var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 
   function callback(err, msg) {
     //log it
     var d = Date.now();
     db.put('log-'+d, { date: d, ip: ip, status: err ? ('ERROR: ' + err) : 'OK' });
-
-
+    //respond
     res.writeHead(err ? 400 : 200);
     var out = err ? err : msg;
-    //respond
     if(typeof out !== 'string')
       out = JSON.stringify(out,0,2);
     res.end(out);
