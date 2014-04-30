@@ -94,6 +94,9 @@ function showLogs(callback) {
 }
 
 http.createServer(function setRecord(req, res) {
+  //kill da favicons
+  if(req.url === '/favicon.ico')
+    return res.end();
 
   var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 
