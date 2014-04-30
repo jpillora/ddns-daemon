@@ -1,7 +1,7 @@
 ddns-daemon
 ===========
 
-A Simple Dynamic Daemon using Node.js and Route53
+A Simple Dynamic DNS Daemon using Node.js and Route53
 
 ## Usage 
 
