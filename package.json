@@ -1,0 +1,20 @@
+{
+  "name": "ddns-daemon",
+  "version": "0.1.0",
+  "description": "A Simple Dynamic Daemon using Node.js and Route53",
+  "main": "server.js",
+  "bin": {
+    "ddns-daemon": "cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://jpillora@github.com/jpillora/ddns-daemon.git"
+  },
+  "author": "Jaime Pillora <dev@jpillora.com>",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.0.0-rc.14",
+    "async": "^0.7.0",
+    "level": "^0.18.0"
+  }
+}
