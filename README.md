@@ -1,7 +1,7 @@
 ddns-daemon
 ===========
 
-A Simple Dynamic DNS Daemon using Node.js and Route53
+A Simple DynamicDNS Daemon using Node.js and Route53
 
 ## Usage 
 
@@ -33,17 +33,22 @@ git push heroku
 
 If `PASSWORD` is defined, it must be included in the URL
 
-* `/<PASSWORD>/<DOMAIN>/<IP-ADDRESS>` - Sets an A record for this value
+* `/<PASSWORD>/<[SUB]DOMAIN>/<IP-ADDRESS>` - Creates or updates this domain or subdomain with the given IP address (defines an A record)
 * `/<PASSWORD>/show/version` - Shows `ddns-daemon` version
 * `/<PASSWORD>/show/logs` - Shows primitive web logs
 * `/<PASSWORD>/show/records` - Shows all records in all zones
 
 ### Notes
 
+* In order for your router to consume this API, you'll need to use a custom URL as the Dynamic DNS service. I'm currently using the open source [TomatoUSB](http://tomatousb.org/) firmware. Otherwise, you could run a script on a *host* inside your network which periodically checks [your public IP](http://canihazip.com/s) and fires off an update when required.
 * Domains are about $3.00/yr and then managing these on AWS Route53 is about $0.50each/mth
-* On free heroku, apps can be brought down due to innactivity, to keep them up - use [UptimeRobot](https://uptimerobot.com/)
-* On free heroku, a `ddns-daemon` server would not be secured, so requests would be vuln to a MitM
+* Free heroku instances may be brought down due to innactivity, to keep them up - use [UptimeRobot](https://uptimerobot.com/)
+* Free heroku instances are not secured, so requests would be vuln to a MitM
 * Logs get wiped on app restart
+
+### Todo
+
+* Allow this to run in real OS daemon mode on system start and function as the *host* described above
 
 #### MIT License
 
