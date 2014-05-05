@@ -1,6 +1,6 @@
 {
   "name": "ddns-daemon",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Simple Dynamic Daemon using Node.js and Route53",
   "main": "server.js",
   "bin": {
