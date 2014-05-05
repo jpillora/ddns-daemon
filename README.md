@@ -45,6 +45,7 @@ If `PASSWORD` is defined, it must be included in the URL
 * Free heroku instances may be brought down due to innactivity, to keep them up - use [UptimeRobot](https://uptimerobot.com/)
 * Free heroku instances are not secured, so requests would be vuln to a MitM
 * Logs get wiped on app restart
+* AWS Route53 Docs can be found [here](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Route53.html)
 
 ### Todo
 

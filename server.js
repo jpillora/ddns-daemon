@@ -41,7 +41,7 @@ function insertRecord(zone, name, value, callback) {
         Action: 'UPSERT',
         ResourceRecordSet: {
           Name: name,
-          Type: 'A',
+          Type: net.isIPv4(value) ? 'A' : 'CNAME',
           ResourceRecords: [{
             Value: value,
           }],
@@ -130,9 +130,6 @@ http.createServer(function setRecord(req, res) {
       return showLogs(callback);
     else if(value === 'version')
       return callback(null, pkg.version);
-
-  if(!net.isIPv4(value))
-    return callback('Invalid value');
 
   //call aws!
   async.waterfall([
