@@ -38,7 +38,7 @@ function insertRecord(zone, name, value, callback) {
   route53.changeResourceRecordSets({
     ChangeBatch: {
       Changes: [{
-        Action: 'UPSERT',
+        Action: value === '-' ? 'DELETE' : 'UPSERT',
         ResourceRecordSet: {
           Name: name,
           Type: net.isIPv4(value) ? 'A' : 'CNAME',
@@ -54,6 +54,7 @@ function insertRecord(zone, name, value, callback) {
 }
 
 function showRecords(callback) {
+  
   route53.listHostedZones({}, function gotZones(err, data){
     if(err)
       return callback(err);
@@ -63,6 +64,7 @@ function showRecords(callback) {
       callback(err, output.join('\n\n'));
     });
   });
+
   function makeFn(output, zone) {
     return function getRecords(cb) {
       route53.listResourceRecordSets({HostedZoneId:zone.Id}, function(err, data) {
